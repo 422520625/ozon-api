@@ -41,7 +41,7 @@ class App
             ]);
     }
 
-    protected function get(string $url, array $query = []): array
+    public function get(string $url, array $query = []): array
     {
         return $this->client->get($url, $query)->json();
     }
