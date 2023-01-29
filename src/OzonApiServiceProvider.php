@@ -21,7 +21,7 @@ class OzonApiServiceProvider extends ServiceProvider implements DeferrableProvid
         ]);
 
         $config = config('e-commerce.ozon');
-        Http::macro('ozon-api', function () use ($config) {
+        Http::macro('ozonApi', function () use ($config) {
             return Http::withHeaders([
                 'Client-Id' => $config['client_id'],
                 'Api-Key' => $config['api_key'],
