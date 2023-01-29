@@ -8,14 +8,16 @@
  */
 namespace Trigold\OzonApi;
 
-use Illuminate\Support\ServiceProvider;
 use Illuminate\Contracts\Support\DeferrableProvider;
+use Illuminate\Support\ServiceProvider;
 
 class OzonApiServiceProvider extends ServiceProvider implements DeferrableProvider
 {
     public function boot()
     {
-
+        $this->publishes([
+            __DIR__ . '/../config/e-commerce.php' => config_path('e-commerce.php'),
+        ]);
     }
 
     public function register()
