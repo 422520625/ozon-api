@@ -14,6 +14,6 @@ class OzonApi extends Facade
 {
     public static function getFacadeAccessor(): string
     {
-        return OzonApi::class;
+        return 'ozon-api';
     }
 }

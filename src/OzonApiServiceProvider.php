@@ -23,13 +23,13 @@ class OzonApiServiceProvider extends ServiceProvider implements DeferrableProvid
     public function register()
     {
         $this->mergeConfigFrom(__DIR__ . '/../config/e-commerce.php', 'e-commerce');
-        $this->app->singleton(OzonApi::class, function ($app) {
+        $this->app->singleton('ozon-api', function ($app) {
             return new OzonApi(config('e-commerce.ozon'));
         });
     }
 
     public function provides(): array
     {
-        return [OzonApi::class];
+        return ['ozon-api'];
     }
 }
