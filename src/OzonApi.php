@@ -17,7 +17,7 @@ class OzonApi
     public function __construct(array $config)
     {
         $this->config = $config;
-        $this->app = new App($config['base_uri'], $config['client_id'], $config['api_key']);
+        $this->app = new App();
     }
     public function __call($method, $arguments)
     {
