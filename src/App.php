@@ -18,11 +18,11 @@ class App
 
     public function get(string $url, array $query = []): array
     {
-        return Http::OzonApi()->get($url, $query)->json();
+        return Http::ozonApi()->get($url, $query)->json();
     }
 
     public function post(string $url, array $query = []): array
     {
-        return Http::OzonApi()->post($url, $query)->json();
+        return Http::ozonApi()->post($url, $query)->json();
     }
 }
