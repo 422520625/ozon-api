@@ -27,4 +27,9 @@ class OzonApiServiceProvider extends ServiceProvider implements DeferrableProvid
             return new OzonApi(config('e-commerce.ozon'));
         });
     }
+
+    public function provides(): array
+    {
+        return [OzonApi::class];
+    }
 }
