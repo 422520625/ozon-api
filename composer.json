@@ -22,5 +22,12 @@
             "email": "422520625@qq.com"
         }
     ],
-    "minimum-stability": "dev"
+    "minimum-stability": "dev",
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Trigold\\OzonApi\\OzonApiServiceProvider"
+            ]
+        }
+    }
 }
