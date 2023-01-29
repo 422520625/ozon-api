@@ -9,6 +9,7 @@
 namespace Trigold\OzonApi;
 
 use Illuminate\Contracts\Support\DeferrableProvider;
+use Illuminate\Support\Facades\Http;
 use Illuminate\Support\ServiceProvider;
 
 class OzonApiServiceProvider extends ServiceProvider implements DeferrableProvider
@@ -18,6 +19,14 @@ class OzonApiServiceProvider extends ServiceProvider implements DeferrableProvid
         $this->publishes([
             __DIR__ . '/../config/e-commerce.php' => config_path('e-commerce.php'),
         ]);
+
+        $config = config('e-commerce.ozon');
+        Http::macro('ozon-api', function () use ($config) {
+            return Http::withHeaders([
+                'Client-Id' => $config['client_id'],
+                'Api-Key' => $config['api_key'],
+            ])->baseUrl($config['base_uri']);
+        });
     }
 
     public function register()
