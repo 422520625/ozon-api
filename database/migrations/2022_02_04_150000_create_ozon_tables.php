@@ -63,8 +63,16 @@ class CreateOzonTables extends Migration
             $table->foreignId('ozon_attribute_id')->index();
             $table->foreignId('ozon_attribute_option_id')->index();
 
-            $table->foreign('ozon_attribute_id')->references('id')->on('ozon_attributes')->onDelete('cascade');
-            $table->foreign('ozon_attribute_option_id')->references('id')->on('ozon_attribute_options')->onDelete('cascade');
+            $table
+                ->foreign('ozon_attribute_id', 'attribute_foreign')
+                ->references('id')
+                ->on('ozon_attributes')
+                ->onDelete('cascade');
+            $table
+                ->foreign('ozon_attribute_option_id', 'attribute_option_foreign')
+                ->references('id')
+                ->on('ozon_attribute_options')
+                ->onDelete('cascade');
         });
 
         Schema::create('ozon_products', function (Blueprint $table) {
