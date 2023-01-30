@@ -20,6 +20,8 @@ class OzonApiServiceProvider extends ServiceProvider implements DeferrableProvid
             __DIR__ . '/../config/e-commerce.php' => config_path('e-commerce.php'),
         ]);
 
+        $this->loadMigrationsFrom(__DIR__ . '/../database/migrations');
+
         $config = config('e-commerce.ozon');
         Http::macro('ozonApi', function () use ($config) {
             return Http::withHeaders([
